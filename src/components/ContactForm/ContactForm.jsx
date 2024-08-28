@@ -52,7 +52,6 @@ export default function ContactForm (){
               className={css.nameInput}
               type="tel"
               name="phone"
-              pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}"
             />
             <ErrorMessage className={css.error} name="phone" component="span" />
           </div>
