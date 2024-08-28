@@ -6,24 +6,40 @@ import css from "./ContactList.module.css"
 
 
 export default function ContactList (){
- const contacts = useSelector(selectContacts);
-  const filterValue = useSelector(selectNameFilter);
-
-  const filteredContacts = contacts.filter((contact) =>
+        const contacts = useSelector(selectContacts);
+        const filterValue = useSelector(selectNameFilter);
+        const filteredContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filterValue.toLowerCase())
   );
-    return (
-        <div className={css.formContact}>
+
+        // const filteredContacts =contacts.filter((contact) => {
+        //   if ("id" in contact && "name" in contact && "phone" in contact) {
+        //     if (
+        //       typeof contact.id === "string" &&
+        //       typeof contact.name === "string" &&
+        //       typeof contact.phone === "string"
+        //     ) {
+        //       return contact.name.toLowerCase().includes(filterValue.toLowerCase());
+        //     }
+        //   }
+        //   return false;
+        // });
+        return (
+        // <div className={css.formContact}>
         <ul className={css.list}>
             {filteredContacts.map((contact)=>{
-            return (
-                <li key={contact.id}>
-            <Contact contact={contact} />
-          </li>
+              return (
+                // <li key={contact.id}>
+                <Contact
+            name={contact.name}
+            number={contact.number}
+            key={contact.id}
+            id={contact.id}
+          />
               );
             })}
           </ul>
         
-</div>
+// </div>
     );
         }
