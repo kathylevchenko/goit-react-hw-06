@@ -10,20 +10,10 @@ const contactsSlice = createSlice({
   name: "contacts",
   initialState: INITIAL_STATE,
   reducers: {
-    addContact: {
-      reducer(state, action) {
+    addContact: 
+      (state, action)=> {
         state.contacts.items.push(action.payload);
       },
-      prepare(name, phone) {
-        return {
-          payload: {
-            id: nanoid(),
-            name,
-            phone,
-          },
-        };
-      },
-    },
     deleteContact: (state, action) => {
       state.contacts.items = state.contacts.items.filter(
         (item) => item.id !== action.payload
